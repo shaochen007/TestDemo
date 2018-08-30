@@ -1,0 +1,32 @@
+<resources>
+    <declare-styleable name="NumPercent">
+        <attr name="exampleString" format="string" />
+        <attr name="exampleDimension" format="dimension" />
+        <attr name="exampleColor" format="color" />
+        <attr name="exampleDrawable" format="color|reference" />
+        <!--进度条颜色-->
+        <attr name="progressBarColor" format="color" />
+
+        <!--标题字体大小-->
+        <attr name="titleTextSize" format="dimension" />
+        <!--标题颜色-->
+        <attr name="titleTextColor" format="color" />
+
+        <!--进度值字体大小-->
+        <attr name="progressValueTextSize" format="dimension" />
+        <!--进度值颜色-->
+        <attr name="progressValueTextColor" format="color" />
+
+        <!--字体大小-->
+        <attr name="textSize" format="dimension" />
+        <!--字体颜色-->
+        <attr name="textColor" format="color" />
+
+        <!--标题-->
+        <attr name="title" format="string" />
+        <!--总进度值-->
+        <attr name="totalValue" format="integer" />
+        <!--进度值-->
+        <attr name="progressValue" format="integer" />
+    </declare-styleable>
+</resources>
