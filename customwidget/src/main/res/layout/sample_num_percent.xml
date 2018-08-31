@@ -11,7 +11,9 @@
         android:paddingRight="20dp"
         app:progressBarColor="#bbf1f3"
         app:textColor="#ff0000"
-        app:title="答题"
+        app:titleTextSize="18sp"
+        app:progressValueTextSize="15sp"
+        app:title="2"
         app:totalValue="10"
         app:progressValue="2"/>
 

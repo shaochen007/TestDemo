@@ -118,16 +118,18 @@ public class NumPercent extends View {
         // 画标题
         mTextPaint.setColor(mTitleTextColor);
         mTextPaint.setTextSize(mTitleTextSize);
-        final float titleHeight = mTextPaint.getFontMetrics().bottom;
-        canvas.drawText(mTitle, paddingLeft, paddingTop + (contentHeight) / 2 + titleHeight, mTextPaint);
+        Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
+        final float titleHeight = fontMetrics.bottom - fontMetrics.top;
+        canvas.drawText(mTitle, paddingLeft, paddingTop + (contentHeight - titleHeight) / 2 - fontMetrics.top, mTextPaint);
 
         // 画进度值
         mTextPaint.setColor(mProgressValueTextColor);
         mTextPaint.setTextSize(mProgressValueTextSize);
         final String text = String.valueOf(mProgressValue == -1 ? "" : mProgressValue);
         final float valueWidth = mTextPaint.measureText(text);
-        final float valueHeight = mTextPaint.getFontMetrics().bottom;
-        canvas.drawText(text, paddingLeft + contentWidth - valueWidth, paddingTop + (contentHeight + valueHeight) / 2, mTextPaint);
+        fontMetrics = mTextPaint.getFontMetrics();
+        final float valueHeight = fontMetrics.bottom - fontMetrics.top;
+        canvas.drawText(text, paddingLeft + contentWidth - valueWidth, paddingTop + (contentHeight - valueHeight) / 2 - fontMetrics.top, mTextPaint);
 
     }
 
@@ -147,6 +149,7 @@ public class NumPercent extends View {
      */
     public void setTotalValue(int totalValue) {
         this.mTotalValue = totalValue;
+        invalidate();
     }
 
     /**
@@ -165,6 +168,7 @@ public class NumPercent extends View {
      */
     public void setProgressValue(int progressValue) {
         this.mProgressValue = progressValue;
+        invalidate();
     }
 
     /**
@@ -183,5 +187,6 @@ public class NumPercent extends View {
      */
     public void setTitle(final String title) {
         mTitle = title;
+        invalidate();
     }
 }

@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -16,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.cy.customwidget.NumPercent
+        android:id="@+id/num_percent"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="#ccc"
@@ -24,7 +26,6 @@
         app:progressBarColor="#bbf1f3"
         app:textColor="#ff0000"
         app:title="答题"
-        app:totalValue="10"
         app:progressValue="2"/>
 
 </android.support.constraint.ConstraintLayout>
