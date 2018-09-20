@@ -1,5 +1,6 @@
 package com.cy.customwidget;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -48,6 +49,9 @@ public class NumPercent extends View {
     /** 右边是否显示分数形式，默认true*/
     private boolean mShowFraction = true;
 
+    /** 进度条百分比，用于实现动画 */
+    private float mPercent;
+
     public NumPercent(Context context) {
         super(context);
         init(null, 0);
@@ -93,9 +97,24 @@ public class NumPercent extends View {
         mTextPaint.setTextAlign(Paint.Align.LEFT);
         mTextPaint.setStyle(Paint.Style.FILL);
 
+        // 启动动画
+        startAnimator();
     }
 
-    private void invalidateTextPaintAndMeasurements() {
+    /**
+     * 动画绘制进度条
+     */
+    private void startAnimator() {
+        final ValueAnimator animator = ValueAnimator.ofFloat(0, 1f);
+        animator.setDuration(1300);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mPercent = (float) animation.getAnimatedValue();
+                invalidate();
+            }
+        });
+        animator.start();
     }
 
     @Override
@@ -106,7 +125,6 @@ public class NumPercent extends View {
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int paddingRight = getPaddingRight();
-        int paddingBottom = getPaddingBottom();
 
         int contentWidth = getWidth();
         int contentHeight = getHeight();
@@ -117,7 +135,7 @@ public class NumPercent extends View {
             throw new RuntimeException("The mTotalValue cannot be 0");
         }
         final float percent = (float) mProgressValue / mTotalValue;
-        canvas.drawRect(0, 0, percent * contentWidth, contentHeight, mTextPaint);
+        canvas.drawRect(0, 0, percent * contentWidth * mPercent, contentHeight, mTextPaint);
 
         // 画标题
         mTextPaint.setColor(mTitleTextColor);
@@ -153,7 +171,8 @@ public class NumPercent extends View {
      */
     public void setTotalValue(int totalValue) {
         this.mTotalValue = totalValue;
-        invalidate();
+        // 启动动画重新绘制
+        startAnimator();
     }
 
     /**
@@ -172,7 +191,8 @@ public class NumPercent extends View {
      */
     public void setProgressValue(int progressValue) {
         this.mProgressValue = progressValue;
-        invalidate();
+        // 启动动画重新绘制
+        startAnimator();
     }
 
     /**
