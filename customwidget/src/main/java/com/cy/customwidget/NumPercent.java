@@ -45,6 +45,8 @@ public class NumPercent extends View {
     private int mProgressValue;
     /** 标题*/
     private String mTitle;
+    /** 右边是否显示分数形式，默认true*/
+    private boolean mShowFraction = true;
 
     public NumPercent(Context context) {
         super(context);
@@ -81,6 +83,7 @@ public class NumPercent extends View {
         mTotalValue = a.getInteger(R.styleable.NumPercent_totalValue, 1);
         mTitle = a.getString(R.styleable.NumPercent_title);
         mProgressValue = a.getInteger(R.styleable.NumPercent_progressValue, -1);
+        mShowFraction = a.getBoolean(R.styleable.NumPercent_showFraction, mShowFraction);
 
         a.recycle();
 
@@ -105,15 +108,16 @@ public class NumPercent extends View {
         int paddingRight = getPaddingRight();
         int paddingBottom = getPaddingBottom();
 
-        int contentWidth = getWidth() - paddingLeft - paddingRight;
-        int contentHeight = getHeight() - paddingTop - paddingBottom;
+        int contentWidth = getWidth();
+        int contentHeight = getHeight();
 
         // 画进度条
         mTextPaint.setColor(mProgressBarColor);
         if (mTotalValue == 0) {
             throw new RuntimeException("The mTotalValue cannot be 0");
         }
-        canvas.drawRect(0, 0, ((float) mProgressValue / mTotalValue) * contentWidth, contentHeight, mTextPaint);
+        final float percent = (float) mProgressValue / mTotalValue;
+        canvas.drawRect(0, 0, percent * contentWidth, contentHeight, mTextPaint);
 
         // 画标题
         mTextPaint.setColor(mTitleTextColor);
@@ -125,11 +129,11 @@ public class NumPercent extends View {
         // 画进度值
         mTextPaint.setColor(mProgressValueTextColor);
         mTextPaint.setTextSize(mProgressValueTextSize);
-        final String text = String.valueOf(mProgressValue == -1 ? "" : mProgressValue);
+        final String text = mShowFraction ? mProgressValue + "/" + mTotalValue : String.valueOf(mProgressValue == -1 ? "" : mProgressValue);
         final float valueWidth = mTextPaint.measureText(text);
         fontMetrics = mTextPaint.getFontMetrics();
         final float valueHeight = fontMetrics.bottom - fontMetrics.top;
-        canvas.drawText(text, paddingLeft + contentWidth - valueWidth, paddingTop + (contentHeight - valueHeight) / 2 - fontMetrics.top, mTextPaint);
+        canvas.drawText(text, contentWidth - paddingRight - valueWidth, paddingTop + (contentHeight - valueHeight) / 2 - fontMetrics.top, mTextPaint);
 
     }
 

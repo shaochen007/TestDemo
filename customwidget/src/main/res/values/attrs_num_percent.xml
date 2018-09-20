@@ -28,5 +28,8 @@
         <attr name="totalValue" format="integer" />
         <!--进度值-->
         <attr name="progressValue" format="integer" />
+
+        <!--是否显示分数形式，默认是-->
+        <attr name="showFraction" format="boolean" />
     </declare-styleable>
 </resources>

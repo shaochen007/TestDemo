@@ -13,8 +13,8 @@
         app:textColor="#ff0000"
         app:titleTextSize="18sp"
         app:progressValueTextSize="15sp"
-        app:title="2"
-        app:totalValue="10"
-        app:progressValue="2"/>
+        app:title="答题"
+        app:totalValue="22"
+        app:progressValue="11"/>
 
 </FrameLayout>
