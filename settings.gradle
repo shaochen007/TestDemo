@@ -1,1 +1,1 @@
-include ':app', ':android_art_res_chapter_2', ':customwidget'
+include ':app', ':android_art_res_chapter_2', ':customwidget', ':socketanother'
