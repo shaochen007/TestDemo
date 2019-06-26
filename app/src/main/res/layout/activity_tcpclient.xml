@@ -7,7 +7,7 @@
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".client.TCPClientActivity">
+    tools:context="com.chenyong.testdemo.client.TCPClientActivity">
 
     <TextView
         android:id="@+id/tv_content"

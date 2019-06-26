@@ -13,20 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service android:name=".service.TCPServerService" />
+        <activity android:name="com.chenyong.testdemo.variablerecyclerview.VariableRecyclerActivity"></activity>
 
-        <activity android:name=".client.TCPClientActivity"></activity>
-        <!-- <activity android:name=".client.TCPClientActivity"></activity> -->
-        <activity android:name=".RxJavaActivity" />
-        <activity android:name=".ExActivity">
+        <service android:name="com.chenyong.testdemo.service.TCPServerService" />
+
+        <activity android:name="com.chenyong.testdemo.client.TCPClientActivity" /> <!-- <activity android:name=".client.TCPClientActivity"></activity> -->
+        <activity android:name="com.chenyong.testdemo.RxJavaActivity" />
+        <activity android:name="com.chenyong.testdemo.ExActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HttpActivity"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.chenyong.testdemo.HttpActivity" />
+        <activity android:name="com.chenyong.testdemo.MainActivity" />
+        <activity android:name="com.chenyong.testdemo.WxScanLoginActivity" />
     </application>
 
 </manifest>

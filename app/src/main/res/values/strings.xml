@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TestDemo</string>
+    <string name="text_group">组%1$d</string>
+    <string name="text_times">第%1$d次分组</string>
 </resources>

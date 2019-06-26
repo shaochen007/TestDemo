@@ -1,9 +1,7 @@
 <resources>
     <declare-styleable name="NumPercent">
-        <attr name="exampleString" format="string" />
-        <attr name="exampleDimension" format="dimension" />
-        <attr name="exampleColor" format="color" />
-        <attr name="exampleDrawable" format="color|reference" />
+        <!--字体-->
+        <attr name="textBold" format="boolean" />
         <!--进度条颜色-->
         <attr name="progressBarColor" format="color" />
 

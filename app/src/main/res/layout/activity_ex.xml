@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ExActivity"
+        tools:context="com.chenyong.testdemo.ExActivity"
         android:orientation="vertical">
 
         <Button
@@ -35,6 +35,12 @@
             android:layout_height="wrap_content"
             android:onClick="@{onclick}"
             android:text="NunPercent" />
+        <Button
+            android:id="@+id/btn_wx_qrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{onclick}"
+            android:text="WxQrCode" />
 
     </LinearLayout>
 </layout>

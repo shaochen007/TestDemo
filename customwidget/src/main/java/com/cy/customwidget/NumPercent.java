@@ -25,6 +25,8 @@ public class NumPercent extends View {
     /** 进度条颜色*/
     private int mProgressBarColor = Color.parseColor("#BBF1F3");
 
+    /** 字体是否加粗*/
+    private boolean mTextBold = false;
     /** 字体大小*/
     private float mTextSize = 42;
     /** 字体颜色*/
@@ -75,6 +77,8 @@ public class NumPercent extends View {
         // 获取自定义属性值
         mProgressBarColor = a.getColor(R.styleable.NumPercent_progressBarColor, mProgressBarColor);
 
+        mTextBold = a.getBoolean(R.styleable.NumPercent_textBold, mTextBold);
+
         mTextSize = a.getDimension(R.styleable.NumPercent_textSize, mTextSize);
         mTextColor = a.getColor(R.styleable.NumPercent_textColor, mTextColor);
 
@@ -96,6 +100,9 @@ public class NumPercent extends View {
         mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setTextAlign(Paint.Align.LEFT);
         mTextPaint.setStyle(Paint.Style.FILL);
+        if (mTextBold) {
+            mTextPaint.setFakeBoldText(true);
+        }
 
         // 启动动画
         startAnimator();
@@ -212,5 +219,14 @@ public class NumPercent extends View {
     public void setTitle(final String title) {
         mTitle = title;
         invalidate();
+    }
+
+    /**
+     * 设置字体是否加粗
+     *
+     * @param textBold  字体是否加粗
+     */
+    public void setmTextBold(boolean textBold) {
+        this.mTextBold = textBold;
     }
 }

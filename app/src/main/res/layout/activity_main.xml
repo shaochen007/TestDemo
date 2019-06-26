@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.chenyong.testdemo.MainActivity">
 
     <com.cy.customwidget.NumPercent
         android:id="@+id/num_percent"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        app:textBold="true"
         android:background="#ccc"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -27,6 +28,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="进度值+1"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/btn_total"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/num_percent" />
@@ -41,5 +43,73 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_progress"
         app:layout_constraintTop_toTopOf="@+id/btn_progress" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:progressDrawable="@drawable/seekbar_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_progress" />
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/progress1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:maxHeight="8dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:progress="50"
+        android:progressDrawable="@drawable/seekbar_progress_h"
+        android:splitTrack="false"
+        android:thumb="@mipmap/btn_light_c"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/progress2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:thumb="@mipmap/btn_light_d"
+        android:layout_marginTop="8dp"
+        android:progressDrawable="@drawable/seekbar_progress_normal"
+        android:max="100"
+        android:maxHeight="8dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:progress="50"
+        android:splitTrack="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/checkBox2"
+        app:layout_constraintTop_toBottomOf="@+id/progress1" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/progress2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/progress2" />
+
+    <Button
+        android:id="@+id/btn_variable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="可变列表"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress2" />
 
 </android.support.constraint.ConstraintLayout>
