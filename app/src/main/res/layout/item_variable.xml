@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:text="小组得分"
+        android:text="小组得分 "
         app:layout_constraintTop_toTopOf="@id/ll_data_box"
         app:layout_constraintBottom_toBottomOf="@id/ll_data_box"
         app:layout_constraintLeft_toLeftOf="parent"/>
