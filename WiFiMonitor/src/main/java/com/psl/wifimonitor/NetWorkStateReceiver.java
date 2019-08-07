@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
@@ -54,8 +55,12 @@ public class NetWorkStateReceiver extends BroadcastReceiver {
             // 获取WiFi名称
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            sCurWiFi = wifiInfo.getBSSID();
+            if (TextUtils.isEmpty(sCurWiFi)) {
+                sCurWiFi = wifiNetworkInfo.getExtraInfo();
+            }
 
-            wifiDesc = "\n连接WiFi：" + (sCurWiFi = wifiInfo.getSSID()) + ", 时间：" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+            wifiDesc = "\n连接WiFi：" + sCurWiFi + ", 时间：" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         } else {
             wifiDesc = "\n断开WiFi：" + sCurWiFi + ", 时间：" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         }
