@@ -1,4 +1,4 @@
-package com.kungeek.phoneandsms
+package com.psl.wifimonitor
 
 import org.junit.Test
 
