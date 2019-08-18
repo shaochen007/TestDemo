@@ -41,6 +41,12 @@
             android:layout_height="wrap_content"
             android:onClick="@{onclick}"
             android:text="WxQrCode" />
+        <Button
+            android:id="@+id/btn_multi_level_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{onclick}"
+            android:text="MultiLevelSelect" />
 
     </LinearLayout>
 </layout>

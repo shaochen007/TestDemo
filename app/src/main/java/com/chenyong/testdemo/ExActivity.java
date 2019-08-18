@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.cy.customwidget.multilevel.SampleActivity;
 import com.example.chenyong.testdemo.R;
 import com.example.chenyong.testdemo.databinding.ActivityExBinding;
 
@@ -37,6 +38,9 @@ public class ExActivity extends AppCompatActivity {
                         break;
                     case R.id.btn_wx_qrcode:
                         startActivity(new Intent(ExActivity.this,WxScanLoginActivity.class));
+                        break;
+                    case R.id.btn_multi_level_select:
+                        startActivity(new Intent(ExActivity.this, SampleActivity.class));
                         break;
                 }
             }
